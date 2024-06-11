@@ -1,9 +1,21 @@
 import { Link } from "react-router-dom";
 import LoginForm from "../components/Login";
-import { signInWithEmailAndPassword } from "../config/firebase";
+import { signInWithEmailAndPassword, auth } from "../config/firebase";
 
 const LoginPage = () => {
-  const loginUser = () => {};
+  const loginUser = (values) => {
+    console.log("values", values);
+    // createUserWithEmailAndPassword(auth, `${values.username}@example.com`, values.password)
+    //   .then((userCredential) => {
+    //     const user = userCredential.user;
+    //     console.log("user", user);
+    //   })
+    //   .catch((error) => {
+    //     const errorCode = error.code;
+    //     const errorMessage = error.message;
+    //     console.log("errorMessage", errorMessage);
+    //   });
+  };
   return (
     <div className="container">
       <div className="row justify-content-center p-5">
