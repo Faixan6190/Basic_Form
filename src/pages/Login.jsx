@@ -5,16 +5,16 @@ import { signInWithEmailAndPassword, auth } from "../config/firebase";
 const LoginPage = () => {
   const loginUser = (values) => {
     console.log("values", values);
-    // createUserWithEmailAndPassword(auth, `${values.username}@example.com`, values.password)
-    //   .then((userCredential) => {
-    //     const user = userCredential.user;
-    //     console.log("user", user);
-    //   })
-    //   .catch((error) => {
-    //     const errorCode = error.code;
-    //     const errorMessage = error.message;
-    //     console.log("errorMessage", errorMessage);
-    //   });
+    signInWithEmailAndPassword(auth, `${values.username}@example.com`, values.password)
+      .then((userCredential) => {
+        const user = userCredential.user;
+        console.log("user", user);
+      })
+      .catch((error) => {
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        console.log("errorMessage", errorMessage || errorCode);
+      });
   };
   return (
     <div className="container">
