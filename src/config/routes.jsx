@@ -1,4 +1,4 @@
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 import { LoginPage, ProfilePage, SignupPage } from "../pages";
 import { useEffect, useState } from "react";
 import { auth, onAuthStateChanged } from "./firebase";
@@ -8,15 +8,19 @@ function AppRouter() {
 
   useEffect(() => {
     onAuthStateChanged(auth, (user) => {
-      console.log("user", user);
+      if (user) {
+        setIsUser(true);
+      } else {
+        setIsUser(false);
+      }
     });
   }, []);
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<LoginPage />} />
-        <Route path="/signup" element={<SignupPage />} />
-        <Route path="/profile" element={<ProfilePage />} />
+        <Route path="/" element={isUser ? <Navigate to={"/profile"} /> : <LoginPage />} />
+        <Route path="/signup" element={isUser ? <Navigate to={"/profile"} /> : <SignupPage />} />
+        <Route path="/profile" element={isUser ? <ProfilePage /> : <Navigate to={"/"} />} />
       </Routes>
     </BrowserRouter>
   );
