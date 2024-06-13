@@ -2,10 +2,11 @@ import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 import { LoginPage, ProfilePage, SignupPage } from "../pages";
 import { useEffect, useState } from "react";
 import { auth, onAuthStateChanged } from "./firebase";
+import { Spin } from "antd";
 
 function AppRouter() {
   const [isUser, setIsUser] = useState(false);
-
+  const [loader, setLoader] = useState(true);
   useEffect(() => {
     onAuthStateChanged(auth, (user) => {
       if (user) {
@@ -13,16 +14,27 @@ function AppRouter() {
       } else {
         setIsUser(false);
       }
+      setLoader(false);
     });
   }, []);
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={isUser ? <Navigate to={"/profile"} /> : <LoginPage />} />
-        <Route path="/signup" element={isUser ? <Navigate to={"/profile"} /> : <SignupPage />} />
-        <Route path="/profile" element={isUser ? <ProfilePage /> : <Navigate to={"/"} />} />
-      </Routes>
-    </BrowserRouter>
+    <>
+      {loader ? (
+        <div style={{ padding: "200px" }}>
+          <Spin tip="Loading" size="Large">
+            <div className="content" />
+          </Spin>
+        </div>
+      ) : (
+        <BrowserRouter>
+          <Routes>
+            <Route path="/" element={isUser ? <Navigate to={"/profile"} /> : <LoginPage />} />
+            <Route path="/signup" element={isUser ? <Navigate to={"/profile"} /> : <SignupPage />} />
+            <Route path="/profile" element={isUser ? <ProfilePage /> : <Navigate to={"/"} />} />
+          </Routes>
+        </BrowserRouter>
+      )}
+    </>
   );
 }
 
