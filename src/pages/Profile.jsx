@@ -1,6 +1,10 @@
+import AppLayout from "../components/Layout";
+
 const ProfilePage = () => (
   <div>
-    <h1>Profile Page</h1>
+    <AppLayout>
+      <h1>Profile Page</h1>
+    </AppLayout>
   </div>
 );
 
