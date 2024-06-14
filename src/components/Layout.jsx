@@ -12,7 +12,7 @@ const AppLayout = ({ children }) => {
   return (
     <Layout>
       <Sider trigger={null} collapsible collapsed={collapsed}>
-        <div className="demo-logo-vertical" style={{ textAlign: "center"  padding-top: "10px" }}>
+        <div className="demo-logo-vertical text-center py-3">
           <img src={logo} alt="" width={"100px"} />
         </div>
         <Menu
@@ -23,17 +23,17 @@ const AppLayout = ({ children }) => {
             {
               key: "1",
               icon: <UserOutlined />,
-              label: "nav 1",
+              label: "Profile",
             },
             {
               key: "2",
               icon: <VideoCameraOutlined />,
-              label: "nav 2",
+              label: "About",
             },
             {
               key: "3",
               icon: <UploadOutlined />,
-              label: "nav 3",
+              label: "Details",
             },
           ]}
         />
