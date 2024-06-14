@@ -51,8 +51,9 @@ const Users = () => {
   const [page, setPage] = useState(0);
   const paginatedArray = () => {
     let arr = [];
-    for (var i = 0; i < data.length; i++) {
-      arr.push(data.slice(i, i + 2));
+    let chunk = 1;
+    for (var i = 0; i < data.length; i += chunk) {
+      arr.push(data.slice(i, i + chunk));
     }
     console.log(arr);
     return arr;
