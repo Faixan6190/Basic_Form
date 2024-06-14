@@ -1,18 +1,13 @@
 import React, { useState } from "react";
-import {
-  MenuFoldOutlined,
-  MenuUnfoldOutlined,
-  UploadOutlined,
-  UserOutlined,
-  VideoCameraOutlined,
-  LogoutOutlined,
-} from "@ant-design/icons";
+import { MenuFoldOutlined, MenuUnfoldOutlined, UserOutlined, VideoCameraOutlined, LogoutOutlined } from "@ant-design/icons";
 import { Button, Layout, Menu, theme } from "antd";
 import logo from "../assets/images/logo.webp";
 import { signOut, auth } from "../config/firebase";
+import { useNavigate } from "react-router-dom";
 
 const { Header, Sider, Content } = Layout;
 const AppLayout = ({ children }) => {
+  const navigate = useNavigate();
   const [collapsed, setCollapsed] = useState(false);
   const {
     token: { colorBgContainer, borderRadiusLG },
@@ -49,6 +44,7 @@ const AppLayout = ({ children }) => {
               key: "3",
               icon: <UserOutlined />,
               label: "Users",
+              onClick: () => navigate("/users"),
             },
             {
               key: "4",
