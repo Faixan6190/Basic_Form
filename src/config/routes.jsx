@@ -3,6 +3,7 @@ import { LoginPage, ProfilePage, Settings, SignupPage } from "../pages";
 import { useEffect, useState } from "react";
 import { auth, onAuthStateChanged } from "./firebase";
 import { Spin } from "antd";
+import Users from "../pages/Users";
 
 function AppRouter() {
   const [isUser, setIsUser] = useState(false);
@@ -33,6 +34,7 @@ function AppRouter() {
             <Route path="/profile" element={isUser ? <ProfilePage /> : <Navigate to={"/"} />}>
               <Route path="settings" element={<Settings />} />
             </Route>
+            <Route path="/profile" element={isUser ? <Users /> : <Navigate to={"/users"} />}></Route>
           </Routes>
         </BrowserRouter>
       )}

@@ -47,8 +47,8 @@ const AppLayout = ({ children }) => {
             },
             {
               key: "3",
-              icon: <UploadOutlined />,
-              label: "Details",
+              icon: <UserOutlined />,
+              label: "Users",
             },
             {
               key: "4",
