@@ -51,15 +51,20 @@ const Users = () => {
   const [page, setPage] = useState(0);
   const paginatedArray = () => {
     let arr = [];
-    for (var i = 0; i < data.length; i++) {
-      let temp = [];
-      for (var j = 0; j < 1; j++) {
-        temp.push(data[i]);
-      }
-      arr.push(temp);
-    }
+    for (var i = 0; i < data.length; i++) {}
+    console.log(arr);
     return arr;
   };
+  //single data rendering paginatio logic
+  //   for (var i = 0; i < data.length; i++) {
+  //     let temp = [];
+  //     for (var j = 0; j < 1; j++) {
+  //       temp.push(data[i]);
+  //     }
+  //     arr.push(temp);
+  //   }
+  //   return arr;
+  // };
   return (
     <>
       <AppLayout>
