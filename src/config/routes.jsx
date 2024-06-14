@@ -31,7 +31,7 @@ function AppRouter() {
             <Route path="/" element={isUser ? <Navigate to={"/profile"} /> : <LoginPage />} />
             <Route path="/signup" element={isUser ? <Navigate to={"/profile"} /> : <SignupPage />} />
             <Route path="/profile" element={isUser ? <ProfilePage /> : <Navigate to={"/"} />}>
-              <Route path="/settings" element={<Settings />} />
+              <Route path="settings" element={<Settings />} />
             </Route>
           </Routes>
         </BrowserRouter>
