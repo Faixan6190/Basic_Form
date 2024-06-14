@@ -1,7 +1,15 @@
 import React, { useState } from "react";
-import { MenuFoldOutlined, MenuUnfoldOutlined, UploadOutlined, UserOutlined, VideoCameraOutlined } from "@ant-design/icons";
+import {
+  MenuFoldOutlined,
+  MenuUnfoldOutlined,
+  UploadOutlined,
+  UserOutlined,
+  VideoCameraOutlined,
+  LogoutOutlined,
+} from "@ant-design/icons";
 import { Button, Layout, Menu, theme } from "antd";
 import logo from "../assets/images/logo.webp";
+import { signOut, auth } from "../config/firebase";
 
 const { Header, Sider, Content } = Layout;
 const AppLayout = ({ children }) => {
@@ -9,11 +17,18 @@ const AppLayout = ({ children }) => {
   const {
     token: { colorBgContainer, borderRadiusLG },
   } = theme.useToken();
+  const logoutUser = () => {
+    signOut(auth)
+      .then(() => {
+        console.log("logout");
+      })
+      .catch(() => {});
+  };
   return (
     <Layout>
       <Sider trigger={null} collapsible collapsed={collapsed}>
-        <div className="demo-logo-vertical text-center py-3">
-          <img src={logo} alt="" width={"100px"} />
+        <div className="demo-logo-vertical text-center p-3">
+          <img src={logo} alt="" width={"60%"} />
         </div>
         <Menu
           theme="dark"
@@ -34,6 +49,12 @@ const AppLayout = ({ children }) => {
               key: "3",
               icon: <UploadOutlined />,
               label: "Details",
+            },
+            {
+              key: "4",
+              icon: <LogoutOutlined />,
+              label: "Logout",
+              onClick: () => logoutUser(),
             },
           ]}
         />

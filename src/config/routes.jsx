@@ -1,5 +1,5 @@
 import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
-import { LoginPage, ProfilePage, SignupPage } from "../pages";
+import { LoginPage, ProfilePage, Settings, SignupPage } from "../pages";
 import { useEffect, useState } from "react";
 import { auth, onAuthStateChanged } from "./firebase";
 import { Spin } from "antd";
@@ -30,7 +30,9 @@ function AppRouter() {
           <Routes>
             <Route path="/" element={isUser ? <Navigate to={"/profile"} /> : <LoginPage />} />
             <Route path="/signup" element={isUser ? <Navigate to={"/profile"} /> : <SignupPage />} />
-            <Route path="/profile" element={isUser ? <ProfilePage /> : <Navigate to={"/"} />} />
+            <Route path="/profile" element={isUser ? <ProfilePage /> : <Navigate to={"/"} />}>
+              <Route path="/settings" element={<Settings />} />
+            </Route>
           </Routes>
         </BrowserRouter>
       )}
