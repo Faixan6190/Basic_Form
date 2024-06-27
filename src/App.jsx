@@ -24,7 +24,7 @@ function App() {
     <div>
       <h1>Use Reducer</h1>
       <h2>Theme: {state.theme}</h2>
-      <button onClick={() => dispatch()}>Update</button>
+      <button onClick={() => dispatch({ type: "update_theme", theme: "dark" })}>Update</button>
     </div>
     // <User.Provider value={{ user, setUser }}>
     //   <Chat.Provider value={{ chat, setChat }}>
