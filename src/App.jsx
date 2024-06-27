@@ -8,11 +8,10 @@ import { useReducer } from "react";
 const INITIAL_STATE = {
   theme: "light",
   title: "test",
-  header: "testing",
-  footer: "footer",
 };
 
 function reducer(state, action) {
+  console.log("action", action);
   return state;
 }
 
@@ -24,6 +23,8 @@ function App() {
   return (
     <div>
       <h1>Use Reducer</h1>
+      <h2>Theme: {state.theme}</h2>
+      <button onClick={() => dispatch()}>Update</button>
     </div>
     // <User.Provider value={{ user, setUser }}>
     //   <Chat.Provider value={{ chat, setChat }}>
