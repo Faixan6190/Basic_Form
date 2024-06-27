@@ -1,12 +1,18 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { MenuFoldOutlined, MenuUnfoldOutlined, UserOutlined, VideoCameraOutlined, LogoutOutlined } from "@ant-design/icons";
 import { Button, Layout, Menu, theme } from "antd";
 import logo from "../assets/images/logo.webp";
 import { signOut, auth } from "../config/firebase";
 import { useNavigate } from "react-router-dom";
+import User from "../context/UserContext";
+import Chat from "../context/ChatContext";
 
 const { Header, Sider, Content } = Layout;
 const AppLayout = ({ children }) => {
+  const user = useContext(User);
+  console.log("user---->", user);
+  const chat = useContext(Chat);
+  console.log("chat--->", chat);
   const navigate = useNavigate();
   const [collapsed, setCollapsed] = useState(false);
   const {

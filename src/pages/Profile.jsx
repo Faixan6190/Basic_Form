@@ -5,7 +5,6 @@ import { useState } from "react";
 
 const ProfilePage = () => {
   const [obj, setObj] = useState({ name: "Faizan", age: 23 });
-
   return (
     <div>
       <AppLayout>
