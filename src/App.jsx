@@ -3,17 +3,6 @@ import "./App.css";
 import AppRouter from "./config/routes";
 import User from "./context/UserContext";
 import Chat from "./context/ChatContext";
-import { useReducer } from "react";
-
-const INITIAL_STATE = {
-  theme: "light",
-  title: "test",
-};
-
-function reducer(state, action) {
-  console.log("action", action);
-  return state;
-}
 
 function App() {
   // const [user, setUser] = useState({ email: "faizan@gmail.com", name: "Faizan" });
