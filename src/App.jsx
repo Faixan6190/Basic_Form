@@ -16,8 +16,8 @@ function reducer(state, action) {
 }
 
 function App() {
-  const [user, setUser] = useState({ email: "faizan@gmail.com", name: "Faizan" });
-  const [chat, setChat] = useState({ text: "Hello... How Are You...!" });
+  // const [user, setUser] = useState({ email: "faizan@gmail.com", name: "Faizan" });
+  // const [chat, setChat] = useState({ text: "Hello... How Are You...!" });
   const [state, dispatch] = useReducer(reducer, INITIAL_STATE);
   console.log("state", state);
   return (
