@@ -16,3 +16,5 @@ function reducer(state, action) {
       return state;
   }
 }
+
+export { INITIAL_STATE, reducer };

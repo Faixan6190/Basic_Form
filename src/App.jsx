@@ -1,8 +1,9 @@
-import { useState } from "react";
+import { useReducer, useState } from "react";
 import "./App.css";
 import AppRouter from "./config/routes";
 import User from "./context/UserContext";
 import Chat from "./context/ChatContext";
+import { INITIAL_STATE, reducer } from "./reducer";
 
 function App() {
   // const [user, setUser] = useState({ email: "faizan@gmail.com", name: "Faizan" });
