@@ -9,7 +9,7 @@ function App() {
   // const [user, setUser] = useState({ email: "faizan@gmail.com", name: "Faizan" });
   // const [chat, setChat] = useState({ text: "Hello... How Are You...!" });
   const [state, dispatch] = useReducer(reducer, INITIAL_STATE);
-  console.log("state", state);
+  // console.log("state", state);
   return (
     <div>
       <h1>Use Reducer</h1>
